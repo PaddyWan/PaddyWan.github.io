@@ -1,0 +1,56 @@
+/* mechanical layout flow */
+*
+{position: relative;margin: 0px;padding: 0px;box-sizing: inherit;outline: none;border: none;}
+body
+{min-width: 840px;}
+
+
+
+/* theme colors */
+.items-column
+{border-color: #ddd;background-color: #f3f3f3;box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.03);}
+.items-column:hover
+{border-color: #39f;}
+.items-column td:hover
+{background-color: rgba(50,180,255,0.4);border-color: rgba(50,180,255,0.4);}
+.items-column .highlighted
+{background-color: rgba(255,255,0,0.4);border-color: rgba(255,255,0,0.4);}
+
+.selection-stats
+{border-color: #ddd;background-color: #f6f6f6;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);}
+
+
+
+/* theme shit */
+body
+{font-size: 14px;font-family: sans-serif;background-color: #eee;line-height: 140%;}
+
+.app-container
+{}
+
+.items-column
+{float: left;margin: 10px;border-style: solid;border-width: 1px;padding: 5px;}
+.items-column td
+{padding: 2px 8px;border-radius: 5px;cursor: pointer;border-style: outset;border-width: 2px;border-color: transparent;}
+.items-column td:hover
+{text-decoration: underline;}
+.items-column .highlighted
+{}
+
+.selection-stats
+{float: right;margin-left: 10px;border-width: 0px 0px 1px 1px;border-style: solid;border-radius: 3px;padding: 10px;}
+.selection-stats td
+{padding: 2px 8px;cursor: default;}
+.selection-stats-key
+{font-weight: bold;font-size: 18px;}
+.selection-stats-value
+{font-weight: bold;font-size: 18px;}
+.selection-stats-item
+{line-height: 30px;white-space: nowrap;}
+.selection-stats-item-icon,
+.selection-stats-item-label
+{vertical-align: middle;display: inline-block;}
+.selection-stats-item-label
+{margin-left: 6px;}
+.selection-stats-itemcount
+{}
