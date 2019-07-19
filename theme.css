@@ -14,7 +14,7 @@ body
 .items-column td:hover
 {background-color: rgba(50,180,255,0.4);border-color: rgba(50,180,255,0.4);}
 .items-column .highlighted
-{background-color: rgba(255,255,0,0.4);border-color: rgba(255,255,0,0.4);}
+{background-color: rgba(255,255,0,0.4);border-color: rgba(255,255,0,0.4); border-radius: 5px; border-style: outset;}
 
 .selection-stats
 {border-color: #ddd;background-color: #f6f6f6;box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.1);}

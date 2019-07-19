@@ -5,424 +5,421 @@
 	    "name": "antimage",
 	    "short": "am",
 	    "cost": 1,
-	    "species": "elusive",
-	    "class": "demon_hunter"
+	    "species": ["elusive"],
+	    "class": ["demon_hunter"]
 	},
 	{
 	    "name": "axe",
 	    "short": "ax",
 	    "cost": 1,
-	    "species": "brawny",
-	    "class": "warrior"
+	    "species": ["brawny"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "batrider",
 	    "short": "br",
 	    "cost": 1,
-	    "species": "troll",
-	    "class": "knight"
+	    "species": ["troll"],
+	    "class": ["knight"]
 	},
 	{
 	    "name": "bloodseeker",
 	    "short": "bs",
 	    "cost": 1,
-	    "species": "human",
-	    "class": "assassin"
+	    "species": ["human"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "bounty hunter",
 	    "short": "bh",
 	    "cost": 1,
-	    "species": "scrappy",
-	    "class": "assassin"
+	    "species": ["scrappy"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "clockwerk",
 	    "short": "cl",
 	    "cost": 1,
-	    "species": "scrappy",
-	    "class": "inventor"
+	    "species": ["scrappy"],
+	    "class": ["inventor"]
 	},
 	{
 	    "name": "drow ranger",
 	    "short": "dr",
 	    "cost": 1,
-	    "species": "heartless",
-	    "class": "hunter"
+	    "species": ["heartless"],
+	    "class": ["hunter"]
 	},
 	{
 	    "name": "enchantress",
 	    "short": "ec",
 	    "cost": 1,
-	    "species": "savage",
-	    "class": "druid"
+	    "species": ["savage"],
+	    "class": ["druid"]
 	},
 	{
 	    "name": "ogre magi",
 	    "short": "om",
 	    "cost": 1,
-	    "species": "blood-bound",
-	    "class": "mage"
+	    "species": ["blood-bound"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "shadow shaman",
 	    "short": "ss",
 	    "cost": 1,
-	    "species": "troll",
-	    "class": "shaman"
+	    "species": ["troll"],
+	    "class": ["shaman"]
 	},
 	{
 	    "name": "tinker",
 	    "short": "ti",
 	    "cost": 1,
-	    "species": "scrappy",
-	    "class": "inventor"
+	    "species": ["scrappy"],
+	    "class": ["inventor"]
 	},
 	{
 	    "name": "tiny",
 	    "short": "ty",
 	    "cost": 1,
-	    "species": "primordial",
-	    "class": "warrior"
+	    "species": ["primordial"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "tusk",
 	    "short": "tu",
 	    "cost": 1,
-	    "species": "savage",
-	    "class": "warrior"
+	    "species": ["savage"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "warlock",
 	    "short": "wa",
 	    "cost": 1,
-	    "species": "blood-bound",
-	    "class": "warlock"
+	    "species": ["blood-bound"],
+	    "class": ["warlock"]
 	},
 	{
 	    "name": "beastmaster",
 	    "short": "bm",
 	    "cost": 2,
-	    "species": "brawny",
-	    "class": "hunter"
+	    "species": ["brawny"],
+	    "class": ["hunter"]
 	},
 	{
 	    "name": "chaos knight",
 	    "short": "ck",
 	    "cost": 2,
-	    "species": "demon",
-	    "class": "knight"
+	    "species": ["demon"],
+	    "class": ["knight"]
 	},
 	{
 	    "name": "crystal maiden",
 	    "short": "cm",
 	    "cost": 2,
-	    "species": "human",
-	    "class": "mage"
+	    "species": ["human"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "juggernaut",
 	    "short": "ju",
 	    "cost": 2,
-	    "species": "brawny",
-	    "class": "warrior"
+	    "species": ["brawny"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "luna",
 	    "short": "lu",
 	    "cost": 2,
-	    "species": "elusive",
-	    "class": "knight"
+	    "species": ["elusive"],
+	    "class": ["knight"]
 	},
 	{
 	    "name": "morphling",
 	    "short": "mo",
 	    "cost": 2,
-	    "species": "primordial",
-	    "class": "assassin"
+	    "species": ["primordial"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "nature's prophet",
 	    "short": "np",
 	    "cost": 2,
-	    "species": "elusive",
-	    "class": "druid"
+	    "species": ["elusive"],
+	    "class": ["druid"]
 	},
 	{
 	    "name": "puck",
 	    "short": "pu",
 	    "cost": 2,
-	    "species": "elusive",
-	    "species2": "dragon",
-	    "class": "mage"
+	    "species": ["elusive","dragon"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "pudge",
 	    "short": "pd",
 	    "cost": 2,
-	    "species": "heartless",
-	    "class": "warrior"
+	    "species": ["heartless"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "queen of pain",
 	    "short": "qp",
 	    "cost": 2,
-	    "species": "demon",
-	    "class": "assassin"
+	    "species": ["demon"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "slardar",
 	    "short": "sl",
 	    "cost": 2,
-	    "species": "scaled",
-	    "class": "warrior"
+	    "species": ["scaled"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "timbersaw",
 	    "short": "ts",
 	    "cost": 2,
-	    "species": "scrappy",
-	    "class": "inventor"
+	    "species": ["scrappy"],
+	    "class": ["inventor"]
 	},
 	{
 	    "name": "treant protector",
 	    "short": "tp",
 	    "cost": 2,
-	    "species": "elusive",
-	    "class": "druid"
+	    "species": ["elusive"],
+	    "class": ["druid"]
 	},
 	{
 	    "name": "witch doctor",
 	    "short": "wd",
 	    "cost": 2,
-	    "species": "troll",
-	    "class": "warlock"
+	    "species": ["troll"],
+	    "class": ["warlock"]
 	},
 	{
 	    "name": "abaddan",
 	    "short": "ab",
 	    "cost": 3,
-	    "species": "heartless",
-	    "class": "knight"
+	    "species": ["heartless"],
+	    "class": ["knight"]
 	},
 	{
 	    "name": "arc warden",
 	    "short": "aw",
 	    "cost": 3,
-	    "species": "primordial",
-	    "class": "shaman"
+	    "species": ["primordial"],
+	    "class": ["shaman"]
 	},
 	{
 	    "name": "lina",
 	    "short": "li",
 	    "cost": 3,
-	    "species": "human",
-	    "class": "mage"
+	    "species": ["human"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "lycan",
 	    "short": "ly",
 	    "cost": 3,
-	    "species": "human",
-	    "species2": "savage",
-	    "class": "warrior"
+	    "species": ["human","savage"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "omniknight",
 	    "short": "ok",
 	    "cost": 3,
-	    "species": "human",
-	    "class": "knight"
+	    "species": ["human"],
+	    "class": ["knight"]
 	},
 	{
 	    "name": "phantom assassin",
 	    "short": "pa",
 	    "cost": 3,
-	    "species": "elusive",
-	    "class": "assassin"
+	    "species": ["elusive"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "razor",
 	    "short": "ra",
 	    "cost": 3,
-	    "species": "primordial",
-	    "class": "mage"
+	    "species": ["primordial"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "sand king",
 	    "short": "sk",
 	    "cost": 3,
-	    "species": "savage",
-	    "class": "assassin"
+	    "species": ["savage"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "shadow fiend",
 	    "short": "sf",
 	    "cost": 3,
-	    "species": "demon",
-	    "class": "warlock"
+	    "species": ["demon"],
+	    "class": ["warlock"]
 	},
 	{
 	    "name": "slark",
 	    "short": "sa",
 	    "cost": 3,
-	    "species": "scaled",
-	    "class": "assassin"
+	    "species": ["scaled"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "sniper",
 	    "short": "sn",
 	    "cost": 3,
-	    "species": "deadeye",
-	    "class": "hunter"
+	    "species": ["deadeye"],
+	    "class": ["hunter"]
 	},
 	{
 	    "name": "terrorblade",
 	    "short": "tb",
 	    "cost": 3,
-	    "species": "demon",
-	    "class": "demon_hunter"
+	    "species": ["demon"],
+	    "class": ["demon_hunter"]
 	},
 	{
 	    "name": "venomancer",
 	    "short": "ve",
 	    "cost": 3,
-	    "species": "savage",
-	    "class": "warlock"
+	    "species": ["savage"],
+	    "class": ["warlock"]
 	},
 	{
 	    "name": "viper",
 	    "short": "vi",
 	    "cost": 3,
-	    "species": "dragon",
-	    "class": "assassin"
+	    "species": ["dragon"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "windranger",
 	    "short": "wr",
 	    "cost": 3,
-	    "species": "elusive",
-	    "class": "hunter"
+	    "species": ["elusive"],
+	    "class": ["hunter"]
 	},
 	{
 	    "name": "alchemist",
 	    "short": "al",
 	    "cost": 4,
-	    "species": "scrappy",
-	    "class": "warlock"
+	    "species": ["scrappy"],
+	    "class": ["warlock"]
 	},
 	{
 	    "name": "disruptor",
 	    "short": "di",
 	    "cost": 4,
-	    "species": "brawny",
-	    "class": "shaman"
+	    "species": ["brawny"],
+	    "class": ["shaman", "warlock"]
 	},
 	{
 	    "name": "doom",
 	    "short": "do",
 	    "cost": 4,
-	    "species": "demon",
-	    "class": "warrior"
+	    "species": ["demon"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "dragon knight",
 	    "short": "dk",
 	    "cost": 4,
-	    "species": "human",
-	    "species2": "dragon",
-	    "class": "knight"
+	    "species": ["human","dragon"],
+	    "class": ["knight"]
 	},
 	{
 	    "name": "keeper of the light",
 	    "short": "kl",
 	    "cost": 4,
-	    "species": "human",
-	    "class": "mage"
+	    "species": ["human"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "kunkka",
 	    "short": "ku",
 	    "cost": 4,
-	    "species": "human",
-	    "class": "warrior"
+	    "species": ["human"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "lone druid",
 	    "short": "ld",
 	    "cost": 4,
-	    "species": "savage",
-	    "class": "druid"
+	    "species": ["savage"],
+	    "class": ["druid"]
 	},
 	{
 	    "name": "medusa",
 	    "short": "me",
 	    "cost": 4,
-	    "species": "scaled",
-	    "class": "hunter"
+	    "species": ["scaled"],
+	    "class": ["hunter"]
 	},
 	{
 	    "name": "mirana",
 	    "short": "mi",
 	    "cost": 4,
-	    "species": "elusive",
-	    "class": "hunter"
+	    "species": ["elusive"],
+	    "class": ["hunter"]
 	},
 	{
 	    "name": "necrophos",
 	    "short": "ne",
 	    "cost": 4,
-	    "species": "heartless",
-	    "class": "warlock"
+	    "species": ["heartless"],
+	    "class": ["warlock"]
 	},
 	{
-	   "name": "templar assassin",
+	    "name": "templar assassin",
 	    "short": "ta",
 	    "cost": 4,
-	    "species": "elusive",
-	    "class": "assassin"
+	    "species": ["elusive"],
+	    "class": ["assassin"]
 	},
 	{
 	    "name": "troll warlord",
 	    "short": "tw",
 	    "cost": 4,
-	    "species": "troll",
-	    "class": "warrior"
+	    "species": ["troll"],
+	    "class": ["warrior"]
 	},
 	{
 	    "name": "enigma",
 	    "short": "en",
 	    "cost": 5,
-	    "species": "primordial",
-	    "class": "warlock"
+	    "species": ["primordial"],
+	    "class": ["warlock"]
 	},
 	{
 	    "name": "gyrocopter",
 	    "short": "gy",
 	    "cost": 5,
-	    "species": "deadeye",
-	    "class": "inventor"
+	    "species": ["deadeye"],
+	    "class": ["inventor"]
 	},
 	{
 	    "name": "lich",
 	    "short": "lh",
 	    "cost": 5,
-	    "species": "heartless",
-	    "class": "mage"
+	    "species": ["heartless"],
+	    "class": ["mage"]
 	},
 	{
 	    "name": "techies",
 	    "short": "te",
 	    "cost": 5,
-	    "species": "scrappy",
-	    "class": "inventor"
+	    "species": ["scrappy"],
+	    "class": ["inventor"]
 	},
 	{
 	    "name": "tidehunter",
 	    "short": "th",
 	    "cost": 5,
-	    "species": "scaled",
-	    "class": "hunter"
+	    "species": ["scaled"],
+	    "class": ["hunter"]
 	}
     ]
 }

@@ -1,25 +1,27 @@
+//todo use the new array species and class
+
 var model;
 var engine;
 
 function create_div(options)
 {
-	var div = document.createElement('div');
-	for(var k in options)
+    var div = document.createElement('div');
+    for(var k in options)
+    {
+	if(Object.prototype.hasOwnProperty.call(options, k))
 	{
-		if(Object.prototype.hasOwnProperty.call(options, k))
-		{
-			div[k] = options[k];
-		}
+	    div[k] = options[k];
 	}
-	return div;
+    }
+    return div;
 }
 function add_img(div, src, className)
 {	
     var img = document.createElement('img');
     if(className)
     {
-		img.className = className;
-	}
+	img.className = className;
+    }
     img.src = src;
     div.appendChild(img);
     return div;
@@ -40,9 +42,16 @@ class Unit
 	this.name = json.name;
 	this.shor = json['short'];
 	this.cost = json.cost;
-	this.species = json.species;
-	this.species2 = json.species2;
-	this.clazz = json['class'];
+	this.species = [];
+	for(var i = 0; i < json.species.length; ++i)
+	{
+	    this.species[i] = json.species[i]
+	}
+	this.clazz = [];
+	for(var i = 0; i < json['class'].length; ++i)
+	{
+	    this.clazz[i] = json['class'][i]
+	}
     }
     get_tr()
     {
@@ -51,35 +60,32 @@ class Unit
 	this.nametxt = document.createElement('td');
 	this.nametxt.appendChild(create_div({className: 'items-item-label', innerText: this.name}));
 	this.rowtxt.appendChild(this.nametxt);
+	
 	var tdspecies = document.createElement('td');
-	this.speciestxt = document.createElement('div');
-	this.speciestxt.className = 'items-item-icons';
-	//	this.speciestxt.appendChild(document.createTextNode(this.species));
-	this.speciestxt.appendChild(document.createTextNode('...'));
-	add_img(this.speciestxt, 'icon/'+this.species+'.png');
-	this.speciestxt.appendChild(document.createTextNode('...'));
-	tdspecies.appendChild(this.speciestxt);
-	if(this.species2 !== undefined)
+	this.speciestxt = [];
+	for(var i = 0; i < this.species.length; ++i)
 	{
-	    this.species2txt = document.createElement('div');
-	    this.species2txt.className = 'items-item-icons';
-//	    this.species2txt.appendChild(document.createTextNode(this.species2));
-	    this.species2txt.appendChild(document.createTextNode('...'));
-	    add_img(this.species2txt, 'icon/'+this.species2+'.png');
-	    this.species2txt.appendChild(document.createTextNode('...'));
-	    tdspecies.appendChild(this.species2txt);
+	    this.speciestxt[i] = document.createElement('div');
+	    this.speciestxt[i].className = 'items-item-icons';
+	    this.speciestxt[i].appendChild(document.createTextNode('...'));
+	    add_img(this.speciestxt[i], 'icon/'+this.species[i]+'.png');
+	    this.speciestxt[i].appendChild(document.createTextNode('...'));
+	    tdspecies.appendChild(this.speciestxt[i]);
 	}
 	this.rowtxt.appendChild(tdspecies);
 	
-	this.clazztxt = document.createElement('td');
-	this.rowtxt.appendChild(this.clazztxt);
-	var itemicons = document.createElement('div');
-	this.clazztxt.appendChild(itemicons);
-	itemicons.className = 'items-item-icons';
-//	this.clazztxt.appendChild(document.createTextNode(this.clazz));
-	itemicons.appendChild(document.createTextNode('...'));
-	add_img(itemicons, 'icon/'+this.clazz+'.png');
-	itemicons.appendChild(document.createTextNode('...'));
+	var tdclazz = document.createElement('td');
+	this.clazztxt = [];
+	for(var i = 0; i < this.clazz.length; ++i)
+	{
+	    this.clazztxt[i] = document.createElement('div');
+	    this.clazztxt[i].className = 'items-item-icons';
+	    this.clazztxt[i].appendChild(document.createTextNode('...'));
+	    add_img(this.clazztxt[i], 'icon/'+this.clazz[i]+'.png');
+	    this.clazztxt[i].appendChild(document.createTextNode('...'));
+	    tdclazz.appendChild(this.clazztxt[i]);
+	}
+	this.rowtxt.appendChild(tdclazz);
 	return this.rowtxt;
     }
     highlight(units,species,clazz)
@@ -92,32 +98,27 @@ class Unit
 	{
 	    this.nametxt.classList.remove('highlighted');
 	}
-	if(species.indexOf(this.species) !== -1)
-	{//select species
-	    this.speciestxt.classList.add('highlighted');
-	}
-	else
+	for(var i = 0; i < this.species.length; ++i)
 	{
-	    this.speciestxt.classList.remove('highlighted');
-	}
-	if(this.species2 !== undefined)
-	{
-	    if(species.indexOf(this.species2) !== -1)
-	    {//select species2
-		this.species2txt.classList.add('highlighted');
+	    if(species.indexOf(this.species[i]) !== -1)
+	    {//select species
+		this.speciestxt[i].classList.add('highlighted');
 	    }
 	    else
 	    {
-		this.species2txt.classList.remove('highlighted');
+		this.speciestxt[i].classList.remove('highlighted');
 	    }
 	}
-	if(clazz.indexOf(this.clazz) !== -1)
-	{//select class
-	    this.clazztxt.classList.add('highlighted');
-	}
-	else
+	for(var i = 0; i < this.clazz.length; ++i)
 	{
-	    this.clazztxt.classList.remove('highlighted');
+	    if(clazz.indexOf(this.clazz[i]) !== -1)
+	    {//select class
+		this.clazztxt[i].classList.add('highlighted');
+	    }
+	    else
+	    {
+		this.clazztxt[i].classList.remove('highlighted');
+	    }
 	}
     }
 }
@@ -132,8 +133,8 @@ class Engine
 	    this.units[i] = new Unit(json.units[i]);
 	}
 	{//build page
-		document.getElementById('app').className = 'app-container';
-		var divid = document.createElement('div');
+	    document.getElementById('app').className = 'app-container';
+	    var divid = document.createElement('div');
 	    divid.className = 'selection-stats';
 	    var table = document.createElement('table');
 	    this.speciesclazz = document.createElement('tbody');
@@ -328,12 +329,18 @@ class Model
     {
 	var i = 0;
 	while(i < engine.units.length && engine.units[i].name !== unit)
+	{
 	    ++i;
+	}
 	this.units[this.units.length] = unit;
-	this.species[this.species.length] = engine.units[i].species;
-	if(engine.units[i].species2 !== undefined)
-	    this.species[this.species.length] = engine.units[i].species2;
-	this.clazz[this.clazz.length] = engine.units[i].clazz;
+	for(var j = 0; j < engine.units[i].species.length; ++j)
+	{
+	    this.species[this.species.length] = engine.units[i].species[j];
+	}
+	for(var j = 0; j < engine.units[i].clazz.length; ++j)
+	{
+	    this.clazz[this.clazz.length] = engine.units[i].clazz[j];
+	}
     }
     activate_unit(unit)
     {
