@@ -1,5 +1,3 @@
-//todo use the new array species and class
-
 var model;
 var engine;
 
@@ -370,6 +368,7 @@ function init()
 {
     var hash = window.location.hash.substr(1);
     var xmlhttp = new XMLHttpRequest();
+    
     xmlhttp.onreadystatechange = function()
     {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
@@ -393,7 +392,16 @@ function init()
 	    }
         }
     };
-    xmlhttp.open('GET', 'data.json?t=' + Date.now(), true);
+    var url = new URL(window.location.href);
+    var version = url.searchParams.get('v');
+    if(!version)
+    {    
+	xmlhttp.open('GET', 'latest.json?t=' + Date.now(), true);
+    }
+    else
+    {
+	xmlhttp.open('GET', version + '.json', true);
+    }
     xmlhttp.send();
 }
 
