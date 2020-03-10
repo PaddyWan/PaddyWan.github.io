@@ -54,3 +54,9 @@ body
 {margin-left: 6px;}
 .selection-stats-itemcount
 {}
+
+.horizontal-alliance
+{display: flex;flex-direction: row;}
+
+.items-item-icons > img
+{height: 32px;width: 32px;}

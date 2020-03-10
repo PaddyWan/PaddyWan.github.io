@@ -1,0 +1,389 @@
+{
+    "units":
+    [
+{
+    "name": "Abaddon",
+    "cost": 3,
+    "alliance": ["Heartless","Knight"]
+},
+{
+    "name": "Alchemist",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Anti-mage",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Arc_warden",
+    "cost": 1,
+    "alliance": ["Primordial","Summoner"]
+},
+{
+    "name": "Axe",
+    "cost": 5,
+    "alliance": ["Brawny","Brute"]
+},
+{
+    "name": "Batrider",
+    "cost": 1,
+    "alliance": ["Knight","Troll"]
+},
+{
+    "name": "Beastmaster",
+    "cost": 2,
+    "alliance": ["Brawny","Hunter"]
+},
+{
+    "name": "Bloodseeker",
+    "cost": 1,
+    "alliance": ["Blood-bound","Deadeye"]
+},
+{
+    "name": "Bounty_hunter",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Bristleback",
+    "cost": 2,
+    "alliance": ["Brawny","Savage"]
+},
+{
+    "name": "Broodmother",
+    "cost": 3,
+    "alliance": ["Insect","Warlocks"]
+},
+{
+    "name": "Chaos_knight",
+    "cost": 2,
+    "alliance": ["Demon","Knight"]
+},
+{
+    "name": "Clockwerk",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Crystal_maiden",
+    "cost": 1,
+    "alliance": ["Human","Mage"]
+},
+{
+    "name": "Dazzle",
+    "cost": 2,
+    "alliance": ["Healer","Troll"]
+},
+{
+    "name": "Disruptor",
+    "cost": 4,
+    "alliance": ["Brawny","Warlocks"]
+},
+{
+    "name": "Doom",
+    "cost": 4,
+    "alliance": ["Brute","Demon"]
+},
+{
+    "name": "Dragon_knight",
+    "cost": 5,
+    "alliance": ["Dragon","Human","Knight"]
+},
+{
+    "name": "Drow_ranger",
+    "cost": 1,
+    "alliance": ["Heartless","Hunter","Vigilant"]
+},
+{
+    "name": "Earth_spirit",
+    "cost": 2,
+    "alliance": ["Spirit","Warrior"]
+},
+{
+    "name": "Ember_spirit",
+    "cost": 3,
+    "alliance": ["Assassin","Spirit"]
+},
+{
+    "name": "Enchantress",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Enigma",
+    "cost": 3,
+    "alliance": ["Primordial","Void"]
+},
+{
+    "name": "Faceless_void",
+    "cost": 5,
+    "alliance": ["Assassin","Void"]
+},
+{
+    "name": "Gyrocopter",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Io",
+    "cost": 3,
+    "alliance": ["Druid","Primordial"]
+},
+{
+    "name": "Juggernaut",
+    "cost": 3,
+    "alliance": ["Brawny","Warrior"]
+},
+{
+    "name": "Keeper_of_the_light",
+    "cost": 4,
+    "alliance": ["Human","Mage"]
+},
+{
+    "name": "Kunkka",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Legion_commander",
+    "cost": 2,
+    "alliance": ["Champion","Human"]
+},
+{
+    "name": "Lich",
+    "cost": 5,
+    "alliance": ["Heartless","Mage"]
+},
+{
+    "name": "Lifestealer",
+    "cost": 3,
+    "alliance": ["Brute","Heartless"]
+},
+{
+    "name": "Lina",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Lone_druid",
+    "cost": 4,
+    "alliance": ["Druid","Savage","Summoner"]
+},
+{
+    "name": "Luna",
+    "cost": 2,
+    "alliance": ["Knight","Vigilant"]
+},
+{
+    "name": "Lycan",
+    "cost": 3,
+    "alliance": ["Human","Savage","Summoner"]
+},
+{
+    "name": "Magnus",
+    "cost": 1,
+    "alliance": ["Druid","Savage"]
+},
+{
+    "name": "Medusa",
+    "cost": 5,
+    "alliance": ["Hunter","Scaled"]
+},
+{
+    "name": "Mirana",
+    "cost": 4,
+    "alliance": ["Hunter","Vigilant"]
+},
+{
+    "name": "Morphling",
+    "cost": 3,
+    "alliance": ["Mage","Primordial"]
+},
+{
+    "name": "Natures_prophet",
+    "cost": 2,
+    "alliance": ["Druid","Summoner"]
+},
+{
+    "name": "Necrophos",
+    "cost": 4,
+    "alliance": ["Healer","Heartless","Warlocks"]
+},
+{
+    "name": "Nyx_assassin",
+    "cost": 1,
+    "alliance": ["Assassin","Insect"]
+},
+{
+    "name": "Ogre_magi",
+    "cost": 2,
+    "alliance": ["Blood-bound","Brute","Mage"]
+},
+{
+    "name": "Omniknight",
+    "cost": 3,
+    "alliance": ["Healer","Human","Knight"]
+},
+{
+    "name": "Phantom_assassin",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Puck",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Pudge",
+    "cost": 2,
+    "alliance": ["Heartless","Warrior"]
+},
+{
+    "name": "Queen_of_pain",
+    "cost": 2,
+    "alliance": ["Assassin","Demon"]
+},
+{
+    "name": "Razor",
+    "cost": 1,
+    "alliance": ["Mage","Primordial"]
+},
+{
+    "name": "Sand_king",
+    "cost": 5,
+    "alliance": ["Insect","Savage"]
+},
+{
+    "name": "Shadow_demon",
+    "cost": 1,
+    "alliance": ["Demon","Heartless"]
+},
+{
+    "name": "Shadow_fiend",
+    "cost": 3,
+    "alliance": ["Demon","Warlocks"]
+},
+{
+    "name": "Shadow_shaman",
+    "cost": 3,
+    "alliance": ["Summoner","Troll"]
+},
+{
+    "name": "Slardar",
+    "cost": 0,
+    "alliance": ["Scaled","Warrior"]
+},
+{
+    "name": "Slark",
+    "cost": 4,
+    "alliance": ["Assassin","Scaled"]
+},
+{
+    "name": "Snapfire",
+    "cost": 1,
+    "alliance": ["Brawny","Dragon"]
+},
+{
+    "name": "Sniper",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Storm_spirit",
+    "cost": 2,
+    "alliance": ["Mage","Spirit"]
+},
+{
+    "name": "Sven",
+    "cost": 4,
+    "alliance": ["Human","Knight","Scaled"]
+},
+{
+    "name": "Techies",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Templar_assassin",
+    "cost": 4,
+    "alliance": ["Assassin","Vigilant","Void"]
+},
+{
+    "name": "Terrorblade",
+    "cost": 3,
+    "alliance": ["Demon","Hunter"]
+},
+{
+    "name": "Tidehunter",
+    "cost": 4,
+    "alliance": ["Scaled","Warrior"]
+},
+{
+    "name": "Timbersaw",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Tinker",
+    "cost": 0,
+    "alliance": ["",""]
+},
+{
+    "name": "Tiny",
+    "cost": 1,
+    "alliance": ["Primordial","Warrior"]
+},
+{
+    "name": "Treant_protector",
+    "cost": 3,
+    "alliance": ["Brute","Druid"]
+},
+{
+    "name": "Troll_warlord",
+    "cost": 5,
+    "alliance": ["Troll","Warrior"]
+},
+{
+    "name": "Tusk",
+    "cost": 1,
+    "alliance": ["Savage","Warrior"]
+},
+{
+    "name": "Venomancer",
+    "cost": 1,
+    "alliance": ["Scaled","Summoner"]
+},
+{
+    "name": "Viper",
+    "cost": 3,
+    "alliance": ["Assassin","Dragon"]
+},
+{
+    "name": "Void_spirit",
+    "cost": 4,
+    "alliance": ["Spirit","Void"]
+},
+{
+    "name": "Warlock_hero",
+    "cost": 1,
+    "alliance": ["Blood-bound","Healer","Warlocks"]
+},
+{
+    "name": "Weaver",
+    "cost": 1,
+    "alliance": ["Hunter","Insect"]
+},
+{
+    "name": "Windranger",
+    "cost": 2,
+    "alliance": ["Hunter","Vigilant"]
+},
+{
+    "name": "Witch_doctor",
+    "cost": 2,
+    "alliance": ["Troll","Warlocks"]
+}
+]}

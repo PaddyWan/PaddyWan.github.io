@@ -32,23 +32,40 @@ function clear_div(div)
 	div.removeChild(div.firstChild);
     }
 }
+function get_other_short_name(dict, name)
+{
+    for(var i = 0; i < name.length; ++i)
+    {
+	for(var j = 0; j < name.length; ++j)
+	{
+	    if(!dict.hasOwnProperty(name.charAt(i)+name.charAt(j)))
+	    {
+		return name.charAt(i)+name.charAt(j);
+	    }
+	}
+    }
+    var i = 0;
+    var attempt = ('0'+(i.toString(36))).slice(-2);
+    while(i<36*36 && dict.hasOwnPropeerty(attempt))
+    {
+	++i;
+	attempt = ('0'+(i.toString(36))).slice(-2);
+    }
+    if(i < 36*36)
+	return attempt;
+    return '"XX';
+}
 
 class Unit
 {
     constructor(json)
     {
 	this.name = json.name;
-	this.shor = json['short'];
 	this.cost = json.cost;
-	this.species = [];
-	for(var i = 0; i < json.species.length; ++i)
+	this.alliance = [];
+	for(var i = 0; i < json.alliance.length; ++i)
 	{
-	    this.species[i] = json.species[i]
-	}
-	this.clazz = [];
-	for(var i = 0; i < json['class'].length; ++i)
-	{
-	    this.clazz[i] = json['class'][i]
+	    this.alliance[i] = json.alliance[i]
 	}
     }
     get_tr()
@@ -59,34 +76,22 @@ class Unit
 	this.nametxt.appendChild(create_div({className: 'items-item-label', innerText: this.name}));
 	this.rowtxt.appendChild(this.nametxt);
 	
-	var tdspecies = document.createElement('td');
-	this.speciestxt = [];
-	for(var i = 0; i < this.species.length; ++i)
+	var tdalliance = document.createElement('td');
+	var tddivalliance = document.createElement('div');
+	tddivalliance.className='horizontal-alliance';
+	this.alliancetxt = [];
+	for(var i = 0; i < this.alliance.length; ++i)
 	{
-	    this.speciestxt[i] = document.createElement('div');
-	    this.speciestxt[i].className = 'items-item-icons';
-	    this.speciestxt[i].appendChild(document.createTextNode('...'));
-	    add_img(this.speciestxt[i], 'icon/'+this.species[i]+'.png');
-	    this.speciestxt[i].appendChild(document.createTextNode('...'));
-	    tdspecies.appendChild(this.speciestxt[i]);
+	    this.alliancetxt[i] = document.createElement('div');
+	    this.alliancetxt[i].className = 'items-item-icons';
+	    add_img(this.alliancetxt[i], 'icon/'+this.alliance[i]+'.png');
+	    tddivalliance.appendChild(this.alliancetxt[i]);
 	}
-	this.rowtxt.appendChild(tdspecies);
-	
-	var tdclazz = document.createElement('td');
-	this.clazztxt = [];
-	for(var i = 0; i < this.clazz.length; ++i)
-	{
-	    this.clazztxt[i] = document.createElement('div');
-	    this.clazztxt[i].className = 'items-item-icons';
-	    this.clazztxt[i].appendChild(document.createTextNode('...'));
-	    add_img(this.clazztxt[i], 'icon/'+this.clazz[i]+'.png');
-	    this.clazztxt[i].appendChild(document.createTextNode('...'));
-	    tdclazz.appendChild(this.clazztxt[i]);
-	}
-	this.rowtxt.appendChild(tdclazz);
+	tdalliance.appendChild(tddivalliance);
+	this.rowtxt.appendChild(tdalliance);
 	return this.rowtxt;
     }
-    highlight(units,species,clazz)
+    highlight(units,alliance)
     {
 	if(units.indexOf(this.name) !== -1)
 	{//select row
@@ -96,26 +101,15 @@ class Unit
 	{
 	    this.nametxt.classList.remove('highlighted');
 	}
-	for(var i = 0; i < this.species.length; ++i)
+	for(var i = 0; i < this.alliance.length; ++i)
 	{
-	    if(species.indexOf(this.species[i]) !== -1)
-	    {//select species
-		this.speciestxt[i].classList.add('highlighted');
+	    if(alliance.indexOf(this.alliance[i]) !== -1)
+	    {//select alliance
+		this.alliancetxt[i].classList.add('highlighted');
 	    }
 	    else
 	    {
-		this.speciestxt[i].classList.remove('highlighted');
-	    }
-	}
-	for(var i = 0; i < this.clazz.length; ++i)
-	{
-	    if(clazz.indexOf(this.clazz[i]) !== -1)
-	    {//select class
-		this.clazztxt[i].classList.add('highlighted');
-	    }
-	    else
-	    {
-		this.clazztxt[i].classList.remove('highlighted');
+		this.alliancetxt[i].classList.remove('highlighted');
 	    }
 	}
     }
@@ -130,13 +124,16 @@ class Engine
 	{
 	    this.units[i] = new Unit(json.units[i]);
 	}
+	this.make_unique_short_names();
+	this.sort_units_on_cost();
+	this.delete_zero_cost();
 	{//build page
 	    document.getElementById('app').className = 'app-container';
 	    var divid = document.createElement('div');
 	    divid.className = 'selection-stats';
 	    var table = document.createElement('table');
-	    this.speciesclazz = document.createElement('tbody');
-	    table.appendChild(this.speciesclazz);
+	    this.alliance = document.createElement('tbody');
+	    table.appendChild(this.alliance);
 	    divid.appendChild(table);
 	    document.getElementById('app').appendChild(divid);
 		
@@ -145,9 +142,9 @@ class Engine
 	    var table = document.createElement('table');
 	    var tbody = document.createElement('tbody');
 	    var cost = 1;
-	    for(var i = 0; i < json.units.length; i++)
+	    for(var i = 0; i < this.units.length; i++)
 	    {
-		if(json.units[i].cost != cost)
+		if(this.units[i].cost != cost)
 		{
 		    cost++;
 		    table.appendChild(tbody);
@@ -165,16 +162,16 @@ class Engine
 	    document.getElementById('app').appendChild(divid);
 	}
     }
-    highlight(units,species,clazz)
+    highlight(units,alliance)
     {
-	clear_div(this.speciesclazz);
+	clear_div(this.alliance);
 	for(var i = 0; i < this.units.length; i++)
 	{
-	    this.units[i].highlight(units,species,clazz);
+	    this.units[i].highlight(units,alliance);
 	}
 	{
 	    var tr = document.createElement('tr');
-	    this.speciesclazz.appendChild(tr);
+	    this.alliance.appendChild(tr);
 	    
 	    var td1 = document.createElement('td');
 	    tr.appendChild(td1);
@@ -186,85 +183,45 @@ class Engine
 	    td2.className = 'selection-stats-value';
 	    td2.innerText = units.length;
 	}
-	var tempspecies = [];
-	var tempclazz = [];
-	for(var i = 0; i < species.length; i++)
+	var tempalliance = [];
+	for(var i = 0; i < alliance.length; i++)
 	{
 	    var j = 0;
-	    while(j < tempspecies.length && tempspecies[j].species !== species[i])
+	    while(j < tempalliance.length && tempalliance[j].alliance !== alliance[i])
 	    {
 		j++;
 	    }
-	    if(j === tempspecies.length)
+	    if(j === tempalliance.length)
 	    {
-		tempspecies[j] = {species:species[i], count:1};
+		tempalliance[j] = {alliance:alliance[i], count:1};
 	    }
 	    else
 	    {
-		tempspecies[j].count++;
+		tempalliance[j].count++;
 	    }
 	}
-	for(var i = 0; i < tempspecies.length; i++)
+	for(var i = 0; i < tempalliance.length; i++)
 	{
 	    var tr = document.createElement('tr');
-	    this.speciesclazz.appendChild(tr);
+	    this.alliance.appendChild(tr);
 	    
 	    var td1 = document.createElement('td');
 	    tr.appendChild(td1);
 	    var item = document.createElement('div');
 	    td1.appendChild(item);
 	    item.className = 'selection-stats-item';
-	    add_img(item, 'icon/'+tempspecies[i].species+'.png', 'selection-stats-item-icon');
+	    add_img(item, 'icon/'+tempalliance[i].alliance+'.png', 'selection-stats-item-icon');
 	    var itemlabel = document.createElement('span');
 	    item.appendChild(itemlabel);
 	    itemlabel.className = 'selection-stats-item-label';
-	    itemlabel.innerText = tempspecies[i].species;
+	    itemlabel.innerText = tempalliance[i].alliance;
 	    
 	    var td2 = document.createElement('td');
 	    tr.appendChild(td2);
 	    var itemcount = document.createElement('div');
 	    td2.appendChild(itemcount);
 	    itemcount.className = 'selection-stats-itemcount';
-	    itemcount.innerText = tempspecies[i].count;
-	}
-	for(var i = 0; i < clazz.length; i++)
-	{
-	    var j = 0;
-	    while(j < tempclazz.length && tempclazz[j].clazz !== clazz[i])
-	    {
-		j++;
-	    }
-	    if(j === tempclazz.length)
-	    {
-		tempclazz[j] = {clazz:clazz[i], count:1};
-	    }
-	    else
-	    {
-		tempclazz[j].count++;
-	    }
-	}
-	for(var i = 0; i < tempclazz.length; i++)
-	{
-	    var tr = document.createElement('tr');
-	    this.speciesclazz.appendChild(tr);
-	    
-	    var td1 = document.createElement('td');
-	    tr.appendChild(td1);
-	    var item = document.createElement('div');
-	    td1.appendChild(item);
-	    item.className = 'selection-stats-item';
-	    add_img(item, 'icon/'+tempclazz[i].clazz+'.png', 'selection-stats-item-icon');
-	    var itemlabel = document.createElement('div');
-	    item.appendChild(itemlabel);
-	    itemlabel.className = 'selection-stats-item-label';
-	    itemlabel.innerText = tempclazz[i].clazz;
-	    
-	    var td2 = document.createElement('td');
-	    tr.appendChild(td2);
-	    var itemcount = document.createElement('div');
-	    td2.appendChild(itemcount);
-	    itemcount.className = 'selection-stats-itemcount';
-	    itemcount.innerText = tempclazz[i].count;
+	    itemcount.innerText = tempalliance[i].count;
 	}
 	{//hash
 	    var shortunits = [];
@@ -312,7 +269,52 @@ class Engine
 	    return this.units[i];
 	}
     }
-    
+    sort_units_on_cost()
+    {
+	this.units.sort(function(a,b)
+			{
+			    if(a.cost == b.cost)
+				return a.name > b.name;
+			    else
+				return a.cost > b.cost;
+			});
+    }
+    make_unique_short_names()
+    {	
+	this.units.sort(function(a,b)
+			{
+			    return a.name > b.name;
+			});
+	for(var i = 0; i < this.units.length; ++i)
+	{
+	    this.units[i].tempname=this.units[i].name.toLowerCase().replace(/\s|-|_/g, '');;	    
+	}
+	var dict = {};
+	for(var i = 0; i < this.units.length; ++i)
+	{
+	    var attempt = this.units[i].tempname.slice(0,2);
+	    if(!dict.hasOwnProperty(attempt))
+	    {
+		this.units[i].shor=attempt;
+		dict[attempt] = true;
+	    }
+	    
+	}
+	for(var i = 0; i < this.units.length; ++i)
+	{
+	    if(!this.units[i].hasOwnProperty('shor'))
+	    {
+		this.units[i].shor=get_other_short_name(dict, this.units[i].tempname);
+		dict[this.units[i].shor] = true;
+	    }
+	    delete this.units[i].tempname;
+	}
+    }
+    delete_zero_cost()
+    {
+	while(this.units[0].cost == 0)
+	    this.units.shift();
+    }
 }
 
 class Model
@@ -320,8 +322,7 @@ class Model
     constructor()
     {
 	this.units = [];
-	this.species = [];
-	this.clazz = [];
+	this.alliance = [];
     }
     add_unit(unit)
     {
@@ -331,13 +332,9 @@ class Model
 	    ++i;
 	}
 	this.units[this.units.length] = unit;
-	for(var j = 0; j < engine.units[i].species.length; ++j)
+	for(var j = 0; j < engine.units[i].alliance.length; ++j)
 	{
-	    this.species[this.species.length] = engine.units[i].species[j];
-	}
-	for(var j = 0; j < engine.units[i].clazz.length; ++j)
-	{
-	    this.clazz[this.clazz.length] = engine.units[i].clazz[j];
+	    this.alliance[this.alliance.length] = engine.units[i].alliance[j];
 	}
     }
     activate_unit(unit)
@@ -353,14 +350,13 @@ class Model
 	    this.units.pop();
 	    var tempunits = this.units;
 	    this.units = [];
-	    this.species = [];
-	    this.clazz = [];
+	    this.alliance = [];
 	    for(var i = 0; i < tempunits.length; i++)
 	    {
 		this.add_unit(tempunits[i]);
 	    }
 	}
-	engine.highlight(this.units,this.species,this.clazz);
+	engine.highlight(this.units,this.alliance);
     }
 }
 
@@ -385,7 +381,7 @@ function init()
 		}
 		hash=hash.substr(2);		
 	    }
-	    engine.highlight(model.units,model.species,model.clazz);
+	    engine.highlight(model.units,model.alliance);
 	    if(typeof undefined !== 'undefined')
 	    {
 		alert('alert');
