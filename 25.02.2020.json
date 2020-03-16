@@ -273,7 +273,7 @@
 },
 {
     "name": "Slardar",
-    "cost": 0,
+    "cost": 2,
     "alliance": ["Scaled","Warrior"]
 },
 {
